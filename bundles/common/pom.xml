@@ -11,6 +11,10 @@
 		<tycho.version>0.24.0</tycho.version>
 	</properties>
 
+	<modules>
+		<module>org.jcommand.prevayler</module>
+	</modules>
+
 	<build>
 		<plugins>
 			<plugin>
