@@ -12,6 +12,7 @@
 	</properties>
 
 	<modules>
+	<module>org.jcommand.server.queue</module>
 	</modules>
 
 	<build>
