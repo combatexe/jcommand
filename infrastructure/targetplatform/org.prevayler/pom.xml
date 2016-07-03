@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>org.prevayler</artifactId>
+	<groupId>org.prevayler</groupId>
+	<version>2.6.0</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<tycho.version>0.24.0</tycho.version>
+	</properties>
+	
+	<modules>
+		<module>org.xpp3</module>
+		<module>org.prevayler.xstream</module>
+		<module>org.prevayler.feature</module>
+		<module>org.prevayler.factory</module>
+		<module>org.prevayler.core</module>
+		<module>com.xstream</module>
+	</modules>
+
+	<parent>
+		<artifactId>org.jcommand.tp</artifactId>
+		<groupId>org.jcommand.tp</groupId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+</project>

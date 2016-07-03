@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: prevayler.xstream
+Bundle-SymbolicName: org.prevayler.xstream
+Bundle-Version: 2.6.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.prevayler.foundation.serialization
+Require-Bundle: org.prevayler.core;bundle-version="2.6.0",
+ com.xstream;bundle-version="1.4.9",
+ org.xpp3;bundle-version="1.1.4"

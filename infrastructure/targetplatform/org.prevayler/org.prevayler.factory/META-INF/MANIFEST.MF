@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Factory
+Bundle-SymbolicName: org.prevayler.factory
+Bundle-Version: 2.6.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.prevayler
+Require-Bundle: org.prevayler.core;bundle-version="2.6.0",
+ org.prevayler.xstream;bundle-version="2.6.0"
