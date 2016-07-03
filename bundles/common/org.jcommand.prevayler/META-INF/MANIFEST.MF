@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Prevayler Extends für JCommand
+Bundle-SymbolicName: org.jcommand.prevayler
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.prevayler.xstream;bundle-version="2.6.0",
+ com.xstream;bundle-version="1.4.9"
