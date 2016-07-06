@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TestModel
+Bundle-SymbolicName: TestModel
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+JCommand-Model: true
+Export-Package: test.model;version="1.0.0"
