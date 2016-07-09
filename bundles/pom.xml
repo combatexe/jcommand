@@ -15,5 +15,6 @@
 		<module>common</module>
 		<module>server</module>
 		<module>client</module>
+		<module>test</module>
 	</modules>
 </project>

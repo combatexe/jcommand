@@ -13,6 +13,7 @@
 
 	<modules>
 	<module>org.jcommand.server.queue</module>
+	<module>org.jcommand.server.security.api</module>
 	</modules>
 
 	<build>
