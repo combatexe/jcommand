@@ -11,7 +11,7 @@
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
-<stringAttribute key="deselected_workspace_plugins" value="de.ipoplan.ipolog.api,de.ipoplan.ipolog.api.model,de.ipoplan.ipolog.api.service.mock,org.jcommand.prevayler,useEntityManagerService"/>
+<stringAttribute key="deselected_workspace_plugins" value="org.jcommand.prevayler"/>
 <stringAttribute key="featureDefaultLocation" value="workspace"/>
 <stringAttribute key="featurePluginResolution" value="workspace"/>
 <booleanAttribute key="includeOptional" value="true"/>
@@ -27,5 +27,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="com.xstream@default:default,org.prevayler.core@default:default,org.prevayler.factory@default:default,org.prevayler.xstream@default:default,org.xpp3@default:default"/>
+<stringAttribute key="workspace_bundles" value="TestModel@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default"/>
 </launchConfiguration>
