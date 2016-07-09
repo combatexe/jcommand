@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JCommand Pprovisioning API
+Bundle-SymbolicName: org.jcommand.provisioning.api
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.jcommand.provisioning.api;version="1.0.0"
+Import-Package: org.osgi.framework.wiring

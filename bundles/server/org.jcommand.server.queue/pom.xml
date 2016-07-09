@@ -5,6 +5,5 @@
     <artifactId>org.jcommand.server</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>org.jcommand.server.queue</groupId>
   <artifactId>org.jcommand.server.queue</artifactId>
 </project>

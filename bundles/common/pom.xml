@@ -13,6 +13,8 @@
 
 	<modules>
 		<module>org.jcommand.prevayler</module>
+		<module>org.jcommand.provisioning.api</module>
+		<module>org.jcommand.queue</module>
 	</modules>
 
 	<build>
