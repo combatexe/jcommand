@@ -1,0 +1,16 @@
+<diagram program="umletino" version="14.2"><zoom_level>10</zoom_level><element><id>UMLDeployment</id><coordinates><x>78</x><y>230</y><w>250</w><h>80</h></coordinates><panel_attributes>&lt;&lt;server environment&gt;&gt;
+Command Router
+customelement?
+bg=blue</panel_attributes><additional_attributes/></element><element><id>UMLDeployment</id><coordinates><x>78</x><y>330</y><w>250</w><h>80</h></coordinates><panel_attributes>&lt;&lt;server environment&gt;&gt;
+Command Executer
+customelement=
+bg=green</panel_attributes><additional_attributes/></element><element><id>UMLDeployment</id><coordinates><x>78</x><y>130</y><w>250</w><h>80</h></coordinates><panel_attributes>&lt;&lt;client environment&gt;&gt;
+Command initiator 
+customelement=
+bg=red</panel_attributes><additional_attributes/></element><element><id>Relation</id><coordinates><x>0</x><y>160</y><w>80</w><h>240</h></coordinates><panel_attributes>lt=&lt;-
+Request</panel_attributes><additional_attributes>10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>150</y><w>90</w><h>260</h></coordinates><panel_attributes>lt=&lt;-
+Response</panel_attributes><additional_attributes>10;10;10;240</additional_attributes></element><element><id>UMLClass</id><coordinates><x>62</x><y>10</y><w>290</w><h>90</h></coordinates><panel_attributes>
+top level view 
+Command Pipeline
+customelement=
+drawRectangleRound(10,10,width-20,height-20,10) //fg= bg= lt= lw= //Parameters (x, y, width, height)</panel_attributes><additional_attributes/></element></diagram>
