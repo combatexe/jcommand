@@ -4,7 +4,8 @@ Bundle-Name: Extender to find Model Bundles
 Bundle-SymbolicName: org.jcommand.queue
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.jcommand.prevayler.classloader;version="[1.0.0,1.1.0)",
+Import-Package: org.jcommand.api;version="[1.0.0,1.1.0)",
+ org.jcommand.prevayler.classloader;version="[1.0.0,1.1.0)",
  org.jcommand.prevayler.serializer;version="[1.0.0,1.1.0)",
  org.jcommand.provisioning.api;version="[1.0.0,1.1.0)",
  org.osgi.framework;version="1.8.0",

@@ -2,7 +2,7 @@ package org.jcommand.queue.modelextender;
 
 import java.util.PriorityQueue;
 
-import org.jcommand.Command;
+import org.jcommand.api.Command;
 
 public class CommandQueue extends PriorityQueue<Command> {
 

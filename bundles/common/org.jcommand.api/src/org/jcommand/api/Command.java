@@ -1,4 +1,4 @@
-package org.jcommand;
+package org.jcommand.api;
 
 public interface Command {
 

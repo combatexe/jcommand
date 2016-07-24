@@ -4,3 +4,4 @@ Bundle-Name: JComand Security Manager
 Bundle-SymbolicName: org.jcommand.server.security.api
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.jcommand.api;version="1.0.0"
