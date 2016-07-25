@@ -15,6 +15,7 @@
 		<module>org.jcommand.prevayler</module>
 		<module>org.jcommand.provisioning.api</module>
 		<module>org.jcommand.queue</module>
+		<module>org.jcommand.api</module>
 	</modules>
 
 	<build>

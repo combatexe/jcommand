@@ -7,4 +7,9 @@
 	<artifactId>org.jcommand.root</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	
+	<modules>
+		<module>bundles</module>
+		<module>infrastructure</module>
+	</modules>
 </project>

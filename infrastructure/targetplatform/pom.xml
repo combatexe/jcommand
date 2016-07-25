@@ -12,8 +12,8 @@
 	</properties>
 
 	<modules>
-		<module>org.jcommand</module>
 		<module>org.prevayler</module>
+		<module>org.jcommand</module>
 	</modules>
 
 	<build>
