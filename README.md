@@ -8,7 +8,7 @@ Command based micro service system:
 
 ![One scenario of ...](/documentation/architecture/org.jcommand.architecture.design/Images/MapAndReduce.png "Possible Example")
 
-Arichtecture and design see [The Architecture and Design Project](/documentation/architecture/org.jcommand.architecture.design/ "Architecture and Design").
-If no image available please us the [UMLlet (http://www.umlet.com/umletino/umletino.html "UMLet")
+Arichtecture and design see [Architecture and Design Project](/documentation/architecture/org.jcommand.architecture.design/ "Architecture and Design").
+If no image available please us the [UMLet](http://www.umlet.com/umletino/umletino.html "UMLet UML Tool") .
 
-Have fun and thing big!
+Have fun and think big!
