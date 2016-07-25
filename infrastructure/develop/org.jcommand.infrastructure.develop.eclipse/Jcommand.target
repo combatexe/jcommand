@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="JCommand" sequenceNumber="32">
+<?pde version="3.8"?><target name="JCommand" sequenceNumber="37">
 <locations>
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.jcommand.targetplatform.osgi.feature.feature.group" version="1.0.0.201607031704"/>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.prevayler.feature.feature.group" version="2.6.0"/>
+<unit id="org.jcommand.targetplatform.osgi.feature.feature.group" version="1.0.0.201607031704"/>
 <repository location="http://jcommand.org/p2/repo/server"/>
 </location>
 </locations>
