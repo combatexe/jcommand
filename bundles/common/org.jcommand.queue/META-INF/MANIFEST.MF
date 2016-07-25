@@ -11,9 +11,10 @@ Import-Package: org.jcommand.api;version="[1.0.0,1.1.0)",
  org.osgi.framework;version="1.8.0",
  org.osgi.framework.namespace;version="1.1.0",
  org.osgi.framework.wiring;version="1.2.0",
- org.osgi.service.component.annotations;version="1.2.0",
- org.prevayler,
- org.prevayler.foundation.serialization
-Service-Component: OSGI-INF/org.jcommand.queue.modelextender.ModelSerializeExtender.xml,
- OSGI-INF/org.jcommand.queue.capability.service.QueueCapabilityComponent.xml
+ org.osgi.service.component.annotations;version="1.2.0"
+Service-Component: OSGI-INF/org.jcommand.queue.capability.service.QueueCapabilityComponent.xml,
+ OSGI-INF/org.jcommand.queue.manager.ModelSerializeExtender.xml
 Bundle-ActivationPolicy: lazy
+Require-Bundle: org.prevayler.factory;bundle-version="2.6.0",
+ org.prevayler.core;bundle-version="2.6.0",
+ org.prevayler.xstream;bundle-version="2.6.0"

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" enabled="true" immediate="true" name="org.jcommand.queue.manager.ModelSerializeExtender">
+   <service>
+      <provide interface="org.jcommand.queue.manager.api.QueueManager"/>
+   </service>
+   <reference bind="bindQueueProvisioningRepository" cardinality="1..1" interface="org.jcommand.provisioning.api.QueueProvisioningRepository" name="QueueProvisioningRepository" policy="static" unbind="unbindQueueProvisioningRepository"/>
+   <implementation class="org.jcommand.queue.manager.ModelSerializeExtender"/>
+</scr:component>

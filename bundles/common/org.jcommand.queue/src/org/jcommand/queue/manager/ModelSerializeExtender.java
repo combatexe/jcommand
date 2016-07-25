@@ -1,4 +1,4 @@
-package org.jcommand.queue.modelextender;
+package org.jcommand.queue.manager;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.jcommand.prevayler.classloader.PrevaylerBundleClassLoader;
 import org.jcommand.provisioning.api.QueueProvisioningRepository;
+import org.jcommand.queue.manager.api.QueueManager;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
@@ -21,7 +22,7 @@ import org.prevayler.PrevaylerFactory;
 import org.prevayler.foundation.serialization.JavaSerializer;
 
 @Component(enabled = true, immediate = true)
-public class ModelSerializeExtender {
+public class ModelSerializeExtender implements QueueManager {
 
 	private ModelExtenderBundleListener bundleListener;
 	private QueueProvisioningRepository queueProvisioningRepository;
@@ -117,6 +118,30 @@ public class ModelSerializeExtender {
 
 	public void unbindQueueProvisioningRepository(QueueProvisioningRepository queueProvisioningRepository) {
 		this.queueProvisioningRepository = null;
+	}
+
+	@Override
+	public void createQueue() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeQueue() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void suspendQueue() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resumQueue() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

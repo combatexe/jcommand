@@ -1,4 +1,4 @@
-package org.jcommand.queue.modelextender;
+package org.jcommand.queue.manager;
 
 import java.util.PriorityQueue;
 
