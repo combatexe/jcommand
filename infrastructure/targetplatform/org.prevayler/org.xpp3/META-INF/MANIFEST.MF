@@ -17,4 +17,4 @@ Export-Package: javax.xml.namespace,
  org.xmlpull.v1.util,
  org.xmlpull.v1.wrapper,
  org.xmlpull.v1.wrapper.classic
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
