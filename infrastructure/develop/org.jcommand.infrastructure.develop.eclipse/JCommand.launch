@@ -11,7 +11,6 @@
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
-<stringAttribute key="deselected_workspace_plugins" value="org.jcommand.prevayler"/>
 <stringAttribute key="featureDefaultLocation" value="workspace"/>
 <stringAttribute key="featurePluginResolution" value="workspace"/>
 <booleanAttribute key="includeOptional" value="true"/>
@@ -22,10 +21,10 @@
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <setAttribute key="selected_features"/>
-<booleanAttribute key="show_selected_only" value="true"/>
+<booleanAttribute key="show_selected_only" value="false"/>
 <stringAttribute key="target_bundles" value="javax.xml@default:default,org.apache.felix.gogo.command@default:default,org.apache.felix.gogo.runtime@default:default,org.apache.felix.gogo.shell@default:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.console@default:default,org.eclipse.equinox.ds@1:true,org.eclipse.equinox.event@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.equinox.util@default:default,org.eclipse.osgi.compatibility.state@default:false,org.eclipse.osgi.services@default:default,org.eclipse.osgi@-1:true"/>
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="TestModel@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default"/>
+<stringAttribute key="workspace_bundles" value="com.xstream@default:default,org.jcommand.api@default:default,org.jcommand.prevayler@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default,org.jcommand.server.security.api@default:default,org.prevayler.core@default:default,org.prevayler.factory@default:default,org.prevayler.xstream@default:default,org.xpp3@default:default"/>
 </launchConfiguration>
