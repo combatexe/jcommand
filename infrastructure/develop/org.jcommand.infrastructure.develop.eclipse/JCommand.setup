@@ -5,19 +5,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
-    xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="jcommand"
     label="JCommand">
   <setupTask
       xsi:type="jdt:JRETask"
-      version="JavaSE-1.8"
-      location="${jre.location-1.8}">
+      version="JavaSE-1.6"
+      location="${jre.location-1.6}">
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -36,14 +36,10 @@
     <description>Description	Initialize M2E's Maven Lifecycle Mappings, see https://www.eclipse.org/m2e/documentation/m2e-execution-not-covered.html &amp; https://wiki.eclipse.org/M2E_compatible_maven_plugins</description>
   </setupTask>
   <setupTask
-      xsi:type="setup:CompoundTask"
-      name="org.eclipse.team.core">
-    <setupTask
-        xsi:type="setup:PreferenceTask"
-        key="/instance/org.eclipse.team.core/ignore_files"
-        value="*/.settings/*&#xA;true&#xA;.classpath&#xA;true&#xA;.project&#xA;true&#xA;"/>
-    <description></description>
-  </setupTask>
+      xsi:type="setup:ResourceCreationTask"
+      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;lifecycleMappingMetadata>&#xA;  &lt;pluginExecutions>&#xA;    &lt;pluginExecution>&#xA;      &lt;pluginExecutionFilter>&#xA;        &lt;groupId>org.eclipse.tycho&lt;/groupId>&#xA;        &lt;artifactId>tycho-compiler-plugin&lt;/artifactId>&#xA;        &lt;versionRange>0.24.0&lt;/versionRange>&#xA;        &lt;goals>&#xA;          &lt;goal>compile&lt;/goal>&#xA;        &lt;/goals>&#xA;      &lt;/pluginExecutionFilter>&#xA;      &lt;action>&#xA;        &lt;ignore />&#xA;      &lt;/action>&#xA;    &lt;/pluginExecution>&#xA;    &lt;pluginExecution>&#xA;      &lt;pluginExecutionFilter>&#xA;        &lt;groupId>org.eclipse.tycho&lt;/groupId>&#xA;        &lt;artifactId>tycho-packaging-plugin&lt;/artifactId>&#xA;        &lt;versionRange>0.24.0&lt;/versionRange>&#xA;        &lt;goals>&#xA;          &lt;goal>build-qualifier-aggregator&lt;/goal>&#xA;          &lt;goal>validate-version&lt;/goal>&#xA;          &lt;goal>build-qualifier&lt;/goal>&#xA;          &lt;goal>validate-id&lt;/goal>&#xA;          &lt;goal>validate&lt;/goal>&#xA;        &lt;/goals>&#xA;      &lt;/pluginExecutionFilter>&#xA;      &lt;action>&#xA;        &lt;ignore />&#xA;      &lt;/action>&#xA;    &lt;/pluginExecution>&#xA;    &lt;pluginExecution>&#xA;      &lt;pluginExecutionFilter>&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xA;        &lt;artifactId>maven-clean-plugin&lt;/artifactId>&#xA;        &lt;versionRange>2.5&lt;/versionRange>&#xA;        &lt;goals>&#xA;          &lt;goal>clean&lt;/goal>&#xA;        &lt;/goals>&#xA;      &lt;/pluginExecutionFilter>&#xA;      &lt;action>&#xA;        &lt;ignore />&#xA;      &lt;/action>&#xA;    &lt;/pluginExecution>&#xA;  &lt;/pluginExecutions>&#xA;&lt;/lifecycleMappingMetadata>"
+      targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml"
+      encoding="UTF-8"/>
   <setupTask
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
@@ -115,29 +111,27 @@
     </targlet>
   </setupTask>
   <setupTask
-      xsi:type="setup.workingsets:WorkingSetTask">
-    <workingSet
-        name="${scope.project.name}">
-      <predicate
-          xsi:type="predicates:AndPredicate">
-        <operand
-            xsi:type="predicates:RepositoryPredicate"
-            project="org.jcommand-feature"/>
-      </predicate>
-    </workingSet>
-    <description>The dynamic working sets for ${scope.project.label}</description>
-  </setupTask>
-  <setupTask
-      xsi:type="maven:MavenImportTask">
+      xsi:type="projects:ProjectsImportTask">
     <sourceLocator
         rootFolder="${installation.location/git}"
         locateNestedProjects="true"/>
   </setupTask>
   <setupTask
-      xsi:type="setup:ResourceCreationTask"
-      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;lifecycleMappingMetadata>&#xA;  &lt;pluginExecutions>&#xA;    &lt;pluginExecution>&#xA;      &lt;pluginExecutionFilter>&#xA;        &lt;groupId>org.eclipse.tycho&lt;/groupId>&#xA;        &lt;artifactId>tycho-compiler-plugin&lt;/artifactId>&#xA;        &lt;versionRange>0.24.0&lt;/versionRange>&#xA;        &lt;goals>&#xA;          &lt;goal>compile&lt;/goal>&#xA;        &lt;/goals>&#xA;      &lt;/pluginExecutionFilter>&#xA;      &lt;action>&#xA;        &lt;ignore />&#xA;      &lt;/action>&#xA;    &lt;/pluginExecution>&#xA;    &lt;pluginExecution>&#xA;      &lt;pluginExecutionFilter>&#xA;        &lt;groupId>org.eclipse.tycho&lt;/groupId>&#xA;        &lt;artifactId>tycho-packaging-plugin&lt;/artifactId>&#xA;        &lt;versionRange>0.24.0&lt;/versionRange>&#xA;        &lt;goals>&#xA;          &lt;goal>build-qualifier-aggregator&lt;/goal>&#xA;          &lt;goal>validate-version&lt;/goal>&#xA;          &lt;goal>build-qualifier&lt;/goal>&#xA;          &lt;goal>validate-id&lt;/goal>&#xA;          &lt;goal>validate&lt;/goal>&#xA;        &lt;/goals>&#xA;      &lt;/pluginExecutionFilter>&#xA;      &lt;action>&#xA;        &lt;ignore />&#xA;      &lt;/action>&#xA;    &lt;/pluginExecution>&#xA;    &lt;pluginExecution>&#xA;      &lt;pluginExecutionFilter>&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xA;        &lt;artifactId>maven-clean-plugin&lt;/artifactId>&#xA;        &lt;versionRange>2.5&lt;/versionRange>&#xA;        &lt;goals>&#xA;          &lt;goal>clean&lt;/goal>&#xA;        &lt;/goals>&#xA;      &lt;/pluginExecutionFilter>&#xA;      &lt;action>&#xA;        &lt;ignore />&#xA;      &lt;/action>&#xA;    &lt;/pluginExecution>&#xA;  &lt;/pluginExecutions>&#xA;&lt;/lifecycleMappingMetadata>"
-      targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml"
-      encoding="UTF-8"/>
+      xsi:type="setup.workingsets:WorkingSetTask">
+    <workingSet
+        name="JCommand Bundles">
+      <predicate
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*/org.jcommand.*"/>
+        <operand
+            xsi:type="predicates:NaturePredicate"
+            nature="org.eclipse.jdt.core.javanature"/>
+      </predicate>
+    </workingSet>
+    <description>The dynamic working sets for ${scope.project.label}</description>
+  </setupTask>
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
