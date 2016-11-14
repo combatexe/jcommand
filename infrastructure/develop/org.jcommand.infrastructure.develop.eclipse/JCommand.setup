@@ -13,7 +13,7 @@
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="jcommand"
-    label="JCommand queue_manager">
+    label="JCommand">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="User Preferences">
@@ -745,9 +745,9 @@
       <repositoryList
           name="JCommand">
         <repository
-            url="https://raw.githubusercontent.com/jcommand/jcommand/queue_manager/infrastructure/targetplatform/org.jcommand/org.jcommand.targetplatform.deploy/target/repository"/>
+            url="https://raw.githubusercontent.com/jcommand/jcommand/master/infrastructure/targetplatform/org.jcommand/org.jcommand.targetplatform.deploy/target/repository"/>
         <repository
-            url="https://raw.githubusercontent.com/jcommand/jcommand/queue_manager/infrastructure/targetplatform/org.jcommand/org.jcommand.targetplatform.test.deploy/target/repository/"/>
+            url="https://raw.githubusercontent.com/jcommand/jcommand/master/infrastructure/targetplatform/org.jcommand/org.jcommand.targetplatform.test.deploy/target/repository/"/>
       </repositoryList>
       <repositoryList
           name="Mars">
@@ -798,8 +798,8 @@
     </workingSet>
     <description>The dynamic working sets for ${scope.project.label}</description>
   </setupTask>
-  <stream name="queue_manager"
-      label="queue_manager"/>
+  <stream name="master"
+      label="master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']"/>
