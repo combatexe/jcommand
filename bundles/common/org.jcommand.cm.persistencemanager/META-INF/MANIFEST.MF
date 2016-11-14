@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Persistencemanager
+Bundle-SymbolicName: org.jcommand.cm.persistencemanager
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.felix.cm;version="1.1.0",
+ org.osgi.framework;version="1.8.0",
+ org.osgi.service.cm;version="1.5.0",
+ org.osgi.service.component.annotations;version="1.2.0"
+Service-Component: OSGI-INF/org.jcommand.cm.persistencemanager.SVNConfigPersistencManager.xml,
+ OSGI-INF/org.jcommand.cm.internal.ConfigurationDefaultService.xml
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.hamcrest.core;bundle-version="1.3.0";resolution:=optional,
+ org.junit;bundle-version="4.12.0";resolution:=optional,
+ org.hamcrest.library;bundle-version="1.3.0";resolution:=optional
+Export-Package: org.jcommand.cm;version="1.0.0"

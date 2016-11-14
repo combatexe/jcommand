@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" enabled="true" immediate="true" name="org.jcommand.cm.persistencemanager.SVNConfigPersistencManager">
+   <property name="service.ranking" value="2147483647"/>
+   <service>
+      <provide interface="org.apache.felix.cm.PersistenceManager"/>
+   </service>
+   <reference bind="bindConfigurationService" cardinality="1..1" interface="org.jcommand.cm.ConfigurationService" name="ConfigurationService" policy="static" unbind="unbindConfigurationService"/>
+   <implementation class="org.jcommand.cm.persistencemanager.SVNConfigPersistencManager"/>
+</scr:component>

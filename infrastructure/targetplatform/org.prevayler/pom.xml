@@ -7,9 +7,6 @@
 	<version>2.6.0</version>
 	<packaging>pom</packaging>
 	
-	<properties>
-		<tycho.version>0.24.0</tycho.version>
-	</properties>
 	
 	<modules>
 		<module>org.xpp3</module>

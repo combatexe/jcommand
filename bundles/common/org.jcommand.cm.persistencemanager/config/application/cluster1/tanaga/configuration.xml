@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<instance>
+	<network>
+		<server type="node">
+			<host>localhost</host>
+			<port>471</port>
+		</server>
+	</network>
+	<queues>
+		<queue type="node">
+			<pid>4711</pid>
+		</queue>
+		<queue type="node">
+			<pid>4712</pid>
+		</queue>
+	</queues>
+</instance>

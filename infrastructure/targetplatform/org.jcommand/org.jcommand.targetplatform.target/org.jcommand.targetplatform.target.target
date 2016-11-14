@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="JCommand" sequenceNumber="45">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.junit" version="4.12.0.v201504281640"/>
+<unit id="org.hamcrest.core" version="1.3.0.v201303031735"/>
+<unit id="org.hamcrest.library" version="1.3.0.v201505072020"/>
+<repository location="https://raw.githubusercontent.com/jcommand/jcommand/queue_manager/infrastructure/targetplatform/org.jcommand/org.jcommand.targetplatform.test.deploy/target/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.jcommand.targetplatform.osgi.feature.feature.group" version="1.0.0.201609261645"/>
+<unit id="org.prevayler.feature.feature.group" version="2.6.0"/>
+<repository location="https://raw.githubusercontent.com/jcommand/jcommand/queue_manager/infrastructure/targetplatform/org.jcommand/org.jcommand.targetplatform.deploy/target/repository"/>
+</location>
+</locations>
+<environment>
+<os>win32</os>
+<ws>win32</ws>
+<arch>x86_64</arch>
+</environment>
+<targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+</target>

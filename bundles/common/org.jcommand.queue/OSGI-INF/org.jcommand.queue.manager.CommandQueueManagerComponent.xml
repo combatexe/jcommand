@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.jcommand.queue.manager.CommandQueueManagerComponent">
+   <property name="service.pid" value="org.jcommand.cm.persistencemanager.QueueConfiguration"/>
+   <property name="service.scope" value="singleton"/>
+   <service>
+      <provide interface="org.osgi.service.cm.ManagedServiceFactory"/>
+   </service>
+   <reference bind="bindExecutor" cardinality="1..1" interface="java.util.concurrent.Executor" name="Executor" policy="static" unbind="unbindExecutor"/>
+   <implementation class="org.jcommand.queue.manager.CommandQueueManagerComponent"/>
+</scr:component>

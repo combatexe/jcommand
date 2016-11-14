@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.jcommand.provisioning.api.QueueProvisioningRepository;
+import org.jcommand.provisioning.api.ProvisioningRepository;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.namespace.PackageNamespace;
 import org.osgi.framework.wiring.BundleCapability;
@@ -13,14 +13,12 @@ import org.osgi.framework.wiring.BundleWiring;
 public class PrevaylerBundleClassLoader extends ClassLoader {
 
 	private Set<Bundle> bundles = new HashSet<Bundle>();
-	private Long queueId;
 
-	private QueueProvisioningRepository queueProvisioningRepository;
+	private final ProvisioningRepository provisioningRepository;
 
 	// TODO FH: search the next version with the new version db service
-	public PrevaylerBundleClassLoader(Long queueId, QueueProvisioningRepository queueProvisioningRepository) {
-		this.queueId = queueId;
-		this.queueProvisioningRepository = queueProvisioningRepository;
+	public PrevaylerBundleClassLoader(String queueId, ProvisioningRepository queueProvisioningRepository) {
+		this.provisioningRepository = queueProvisioningRepository;
 	}
 
 	public void addBundle(Bundle bundle) {
@@ -48,15 +46,35 @@ public class PrevaylerBundleClassLoader extends ClassLoader {
 	}
 
 	private void trackCapability(Bundle bundle, Package currentPackage) {
+		if (provisioningRepository == null) {
+			return;
+		}
 		BundleWiring wiring = bundle.adapt(BundleWiring.class);
-
 		List<BundleCapability> capabilities = wiring.getCapabilities(PackageNamespace.PACKAGE_NAMESPACE);
 		for (BundleCapability capability : capabilities) {
 			if (currentPackage.getName().equals(capability.getAttributes().get(PackageNamespace.PACKAGE_NAMESPACE))) {
-				queueProvisioningRepository.putQueueCapability(queueId, capability);
-				// No break because multi entries with same package name but different version
+				provisioningRepository.addCapability(capability);
+				// No break because multi entries with same package name but
+				// different version
 			}
 		}
 	}
 
+	public boolean areCapabilitiesSatisfy() {
+		boolean exist = true;
+		for (BundleCapability queueCapability : provisioningRepository.getCapabilities()) {
+			exist = false;
+			for (Bundle bundle : bundles) {
+				BundleWiring wiring = bundle.adapt(BundleWiring.class);
+				List<BundleCapability> capabilities = wiring.getCapabilities(PackageNamespace.PACKAGE_NAMESPACE);
+				if (queueCapability.equals(capabilities)) {
+					exist = true;
+				}
+			}
+			if (!exist) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

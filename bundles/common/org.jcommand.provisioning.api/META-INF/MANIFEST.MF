@@ -5,4 +5,4 @@ Bundle-SymbolicName: org.jcommand.provisioning.api
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.jcommand.provisioning.api;version="1.0.0"
-Import-Package: org.osgi.framework.wiring
+Import-Package: org.osgi.framework.wiring;version="1.2.0"

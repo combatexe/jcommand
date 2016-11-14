@@ -8,7 +8,9 @@
 
 	<modules>
 		<module>org.jcommand.targetplatform.deploy</module>
+		<module>org.jcommand.targetplatform.test.deploy</module>
 		<module>org.jcommand.targetplatform.osgi.feature</module>
+		<module>org.jcommand.targetplatform.target</module>
 	</modules>
 
 	<parent>
@@ -18,11 +20,19 @@
 	</parent>
 
 
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.configadmin</artifactId>
+			<version>1.8.10</version>		
+		</dependency>
+	</dependencies>	
+
 	<repositories>
 		<repository>
 			<id>eclipse.neo.1</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/eclipse/updates/4.6/</url>
+			<url>http://download.eclipse.org/releases/neon/</url>
 		</repository>
 	</repositories>
 </project>

@@ -16,16 +16,16 @@
 <stringAttribute key="featurePluginResolution" value="workspace"/>
 <booleanAttribute key="includeOptional" value="true"/>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_101"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true&#13;&#10;-DsystemConfigurationMatcher=/application/cluster1/tanaga/instance1&#13;&#10;-DconfigurationLocation=../git/jcommand/bundles/common/org.jcommand.cm.persistencemanager/config"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <setAttribute key="selected_features"/>
 <booleanAttribute key="show_selected_only" value="false"/>
-<stringAttribute key="target_bundles" value="com.xstream@default:default,javax.xml@default:default,org.apache.felix.gogo.command@default:default,org.apache.felix.gogo.runtime@default:default,org.apache.felix.gogo.shell@default:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.console@default:default,org.eclipse.equinox.ds@1:true,org.eclipse.equinox.event@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.equinox.util@default:default,org.eclipse.osgi.compatibility.state@default:false,org.eclipse.osgi.services@default:default,org.eclipse.osgi@-1:true,org.prevayler.core@default:default,org.prevayler.factory@default:default,org.prevayler.xstream@default:default,org.xpp3@default:default"/>
+<stringAttribute key="target_bundles" value="com.xstream@default:default,javax.xml@default:default,org.apache.felix.configadmin@default:default,org.apache.felix.gogo.command@default:default,org.apache.felix.gogo.runtime@default:default,org.apache.felix.gogo.shell@default:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.console@default:default,org.eclipse.equinox.ds@1:true,org.eclipse.equinox.event@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.equinox.util@default:default,org.eclipse.osgi.compatibility.state@default:false,org.eclipse.osgi.services@default:default,org.eclipse.osgi@-1:true,org.prevayler.core@default:default,org.prevayler.factory@default:default,org.prevayler.xstream@default:default,org.xpp3@default:default"/>
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="org.jcommand.api@default:default,org.jcommand.prevayler@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default,org.jcommand.server.security.api@default:default"/>
+<stringAttribute key="workspace_bundles" value="org.jcommand.api@default:default,org.jcommand.cm.persistencemanager@3:default,org.jcommand.executor@default:default,org.jcommand.prevayler@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default,org.jcommand.server.security.api@default:default"/>
 </launchConfiguration>

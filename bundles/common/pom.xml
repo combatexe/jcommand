@@ -2,62 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jcommand.common</groupId>
 	<artifactId>org.jcommand.common</artifactId>
+	<groupId>org.jcommand.common</groupId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<properties>
-		<tycho.version>0.24.0</tycho.version>
-	</properties>
+	<parent>
+		<groupId>org.jcommand</groupId>
+		<artifactId>org.jcommand</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
 
 	<modules>
 		<module>org.jcommand.prevayler</module>
 		<module>org.jcommand.provisioning.api</module>
 		<module>org.jcommand.queue</module>
 		<module>org.jcommand.api</module>
+		<module>org.jcommand.cm.persistencemanager</module>
+		<module>org.jcommand.executor</module>
 	</modules>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
-				<configuration>
-					<environments>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	
-	<repositories>
-		<repository>
-			<id>org.jcommand.tp</id>
-			<layout>p2</layout>
-			<url>http://jcommand.org/p2/repo/server</url>
-		</repository>
-	</repositories>
+
 </project>

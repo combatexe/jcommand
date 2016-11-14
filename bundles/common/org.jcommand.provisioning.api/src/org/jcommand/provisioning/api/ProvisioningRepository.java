@@ -6,8 +6,8 @@ import org.osgi.framework.wiring.BundleCapability;
 
 public interface ProvisioningRepository {
 
-	Set<BundleCapability> getCapabilities(Long capabilityId);
+	Set<BundleCapability> getCapabilities();
 
-	Set<Long> getActiveIds();
-	
+	void addCapability(BundleCapability capability);
+
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<instance>
+	<threadpool type="node">
+		<pid>1</pid>
+		<poolTargetSize type="Integer">8</poolTargetSize>
+		<maxWaitMinutesForShutdown type="Integer">10</maxWaitMinutesForShutdown>
+	</threadpool>
+	<network>
+		<server type="node">
+			<host>localhost</host>
+			<port>4711</port>
+		</server>
+	</network>
+	<queues>
+		<queue type="default">
+			<maxQueueEntries type="Integer">200000</maxQueueEntries>
+			<queueLocation>c:\tmp\queues\${pid}\</queueLocation>
+			<queueStatus type="Integer">16</queueStatus>
+		</queue>
+	</queues>
+	<globalProperties>
+		<stream>1.0</stream>
+	</globalProperties>
+</instance>

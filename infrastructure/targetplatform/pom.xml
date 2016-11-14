@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.version>0.24.0</tycho.version>
+		<tycho.version>0.26.0</tycho.version>
 	</properties>
 
 	<modules>
@@ -46,6 +46,8 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+					<resolver>p2</resolver>
+					<pomDependencies>consider</pomDependencies>
 				</configuration>
 			</plugin>
 		</plugins>
