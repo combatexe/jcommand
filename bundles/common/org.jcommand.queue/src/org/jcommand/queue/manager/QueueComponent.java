@@ -2,6 +2,7 @@ package org.jcommand.queue.manager;
 
 import static org.jcommand.queue.manager.QueueStatus.DELETE;
 import static org.jcommand.queue.manager.QueueStatus.EXIST;
+import static org.jcommand.queue.manager.QueueStatus.MAXENTRIES;
 import static org.jcommand.queue.manager.QueueStatus.RUNNING;
 import static org.jcommand.queue.manager.QueueStatus.STOP;
 import static org.jcommand.queue.manager.QueueStatus.STOPPING;
@@ -10,10 +11,13 @@ import static org.jcommand.queue.manager.QueueStatus.UNDEFINE;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Dictionary;
+import java.util.List;
 
 import org.jcommand.prevayler.classloader.PrevaylerBundleClassLoader;
 import org.jcommand.queue.api.Queue;
+import org.jcommand.queue.api.QueueObject;
 import org.jcommand.queue.manager.capability.QueueCapability;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -24,7 +28,7 @@ import org.prevayler.Prevayler;
 import org.prevayler.PrevaylerFactory;
 import org.prevayler.foundation.serialization.JavaSerializer;
 
-public class QueueComponent<T> implements Queue<T>, BundleListener, Serializable {
+public class QueueComponent<T extends QueueObject> implements Queue<T>, BundleListener, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private final String pid;
@@ -51,7 +55,8 @@ public class QueueComponent<T> implements Queue<T>, BundleListener, Serializable
 	@Override
 	public boolean offer(T toQueueObject) {
 		if ((queueStatus & RUNNING.statusCode) == RUNNING.statusCode) {
-			if (maxQueueEntries < persistenceQueue.prevalentSystem().size()) {
+			if (maxQueueEntries < persistenceQueue.prevalentSystem().queue.size()) {
+				queueStatus |= MAXENTRIES.statusCode;
 				suspend();
 			}
 			return persistenceQueue.execute(new OfferQueueObject<T>(toQueueObject));
@@ -60,24 +65,46 @@ public class QueueComponent<T> implements Queue<T>, BundleListener, Serializable
 	}
 
 	@Override
-	public T poll() {
+	public List<T> poll(int poolSize) {
 		int toCheckStatus = STOP.statusCode | STOPPING.statusCode;
 		if ((queueStatus & toCheckStatus) == toCheckStatus) {
 			return null;
 		}
-		if (maxQueueEntries >= persistenceQueue.prevalentSystem().size()) {
+		if (maxQueueEntries >= persistenceQueue.prevalentSystem().queue.size()
+				&& ((queueStatus & MAXENTRIES.statusCode) == MAXENTRIES.statusCode)) {
+			queueStatus &= ~MAXENTRIES.statusCode;
 			resume();
 		}
-		return persistenceQueue.execute(new PollQueueObject<T>());
+		try {
+			return persistenceQueue.execute(new PollQueueObject<T>(poolSize));
+		} catch (Throwable throwable) {
+			throw new RuntimeException("Can't pool queue object from queue", throwable);
+		}
+	}
+
+	@Override
+	public T poll() {
+		List<T> pollResult = poll(1);
+		return pollResult != null && !pollResult.isEmpty() ? pollResult.get(0) : null;
+	}
+
+	@Override
+	public boolean commit(Long queueObjectId) {
+		return commit(Arrays.asList(queueObjectId));
+	}
+
+	@Override
+	public boolean commit(List<Long> queueObjectIds) {
+		return persistenceQueue.execute(new CommitQueueObject<T>(queueObjectIds));
 	}
 
 	@Override
 	public long getLoad() {
-		return persistenceQueue.prevalentSystem().size();
+		return persistenceQueue.prevalentSystem().queue.size();
 	}
 
 	@Override
-	public long getAvGCommandLivQueue() {
+	public long getAvGCommandLiveQueue() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -88,8 +115,8 @@ public class QueueComponent<T> implements Queue<T>, BundleListener, Serializable
 		return 0;
 	}
 
-	public int getQueueStatus() {
-		return queueStatus;
+	public String getQueueStatus() {
+		return QueueStatus.toString(queueStatus);
 	}
 
 	public synchronized boolean start() {
@@ -271,4 +298,5 @@ public class QueueComponent<T> implements Queue<T>, BundleListener, Serializable
 		queueCapability.deactivate(bundleContext);
 		bundleClassLoader = null;
 	}
+
 }

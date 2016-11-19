@@ -15,7 +15,7 @@
 		<queue type="default">
 			<maxQueueEntries type="Integer">200000</maxQueueEntries>
 			<queueLocation>c:\tmp\queues\${pid}\</queueLocation>
-			<queueStatus type="Integer">16</queueStatus>
+			<queueStatus type="Integer">64</queueStatus>
 		</queue>
 	</queues>
 	<globalProperties>

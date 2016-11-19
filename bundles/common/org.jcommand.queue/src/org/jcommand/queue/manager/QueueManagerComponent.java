@@ -6,15 +6,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.Executor;
 
+import org.jcommand.queue.api.QueueObject;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedServiceFactory;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Deactivate;
 
-public abstract class QueueManagerComponent<T> implements ManagedServiceFactory {
+public abstract class QueueManagerComponent<T extends QueueObject> implements ManagedServiceFactory {
 
-	private Map<String, QueueComponent<T>> existingServices = new HashMap<String, QueueComponent<T>>();
+	private Map<String, QueueComponent<T>> existingServices = new HashMap<>();
 
 	private BundleContext bundleContext;
 	protected Executor executor;
@@ -65,7 +66,7 @@ public abstract class QueueManagerComponent<T> implements ManagedServiceFactory 
 	/*
 	 * This method change not the configuration content. Delete the
 	 * configuration entry manual.
-	 * 
+	 *
 	 * @see org.osgi.service.cm.ManagedServiceFactory#deleted(java.lang.String)
 	 */
 	@Override

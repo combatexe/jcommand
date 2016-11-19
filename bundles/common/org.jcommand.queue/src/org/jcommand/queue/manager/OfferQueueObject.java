@@ -14,6 +14,6 @@ final class OfferQueueObject<T> implements SureTransactionWithQuery<PersistenceQ
 
 	@Override
 	public Boolean executeAndQuery(PersistenceQueue<T> persistenceQueue, Date date) {
-		return persistenceQueue.offer(queueObject);
+		return persistenceQueue.queue.offer(queueObject);
 	}
 }

@@ -1,6 +1,8 @@
 package org.jcommand.queue.api;
 
-public interface Queue<T> {
+import java.util.List;
+
+public interface Queue<T extends QueueObject> {
 
 	// process methods
 
@@ -8,11 +10,17 @@ public interface Queue<T> {
 
 	T poll();
 
+	boolean commit(Long commandId);
+
+	List<T> poll(int pollSize);
+
+	boolean commit(List<Long> commandIds);
+
 	// management methods
 
 	long getLoad();
 
-	long getAvGCommandLivQueue();
+	long getAvGCommandLiveQueue();
 
 	long aggregateAvGExecuteTimeOfAllQueuedCommands();
 
