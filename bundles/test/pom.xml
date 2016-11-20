@@ -54,5 +54,12 @@
 		</plugins>
 	</build>
 
-
+	<dependencies>
+		<dependency>
+			<groupId>org.jcommand.targetplatform</groupId>
+			<artifactId>org.jcommand.targetplatform.test.target</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
 </project>
