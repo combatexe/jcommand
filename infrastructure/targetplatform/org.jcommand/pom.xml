@@ -11,6 +11,7 @@
 		<module>org.jcommand.targetplatform.test.deploy</module>
 		<module>org.jcommand.targetplatform.osgi.feature</module>
 		<module>org.jcommand.targetplatform.target</module>
+		<module>org.jcommand.targetplatform.test.target</module>
 	</modules>
 
 	<parent>
