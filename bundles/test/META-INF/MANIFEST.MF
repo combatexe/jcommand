@@ -1,8 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: TestModel
-Bundle-SymbolicName: TestModel
+Bundle-SymbolicName: org.jcommand.test
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 JCommand-Model: true
-Export-Package: test.model;version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.hamcrest.core;bundle-version="1.3.0",
+ org.hamcrest.library;bundle-version="1.3.0",
+ org.junit;bundle-version="4.12.0"
+Import-Package: org.jcommand.api;version="[1.0.0,1.1.0)",
+ org.jcommand.cm;version="[1.0.0,1.1.0)",
+ org.jcommand.queue.api;version="[1.0.0,1.1.0)"

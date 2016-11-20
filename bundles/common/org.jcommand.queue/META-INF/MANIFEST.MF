@@ -21,3 +21,4 @@ Require-Bundle: org.prevayler.core;bundle-version="2.6.0",
  org.prevayler.factory;bundle-version="2.6.0",
  org.prevayler.xstream;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy
+Export-Package: org.jcommand.queue.api;version="1.0.0"
