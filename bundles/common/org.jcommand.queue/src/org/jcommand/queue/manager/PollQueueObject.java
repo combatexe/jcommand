@@ -5,9 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.jcommand.queue.api.QueueObject;
-import org.prevayler.Query;
+import org.prevayler.SureTransactionWithQuery;
 
-final class PollQueueObject<T extends QueueObject> implements Query<PersistenceQueue<T>, List<T>> {
+final class PollQueueObject<T extends QueueObject> implements SureTransactionWithQuery<PersistenceQueue<T>, List<T>> {
 	private static final long serialVersionUID = 1L;
 	private Integer poolSize;
 
@@ -16,7 +16,7 @@ final class PollQueueObject<T extends QueueObject> implements Query<PersistenceQ
 	}
 
 	@Override
-	public List<T> query(PersistenceQueue<T> persistenceQueue, Date date) {
+	public List<T> executeAndQuery(PersistenceQueue<T> persistenceQueue, Date date) {
 
 		List<T> pollResultList = new ArrayList<>(poolSize);
 		T queueObject;
