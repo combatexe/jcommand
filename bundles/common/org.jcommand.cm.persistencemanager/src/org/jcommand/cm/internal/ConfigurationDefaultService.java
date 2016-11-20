@@ -1,5 +1,7 @@
 package org.jcommand.cm.internal;
 
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -127,6 +129,9 @@ public class ConfigurationDefaultService implements ConfigurationService {
 	private Map<String, List<ConfigurationNode>> parseConfigurations() {
 		Path configRoot = Paths.get(System.getProperty("configurationLocation",
 				"../git/jcommand/bundles/common/org.jcommand.cm.persistencemanager/config"));
+		if (!Files.exists(configRoot, LinkOption.NOFOLLOW_LINKS)) {
+			throw new RuntimeException("Configuration path not exist:" + configRoot.toAbsolutePath());
+		}
 		String systemConfigurationMatcher = System.getProperty("systemConfigurationMatcher");
 		ConfigurationParser configurationParser = new ConfigurationParser(configRoot, systemConfigurationMatcher);
 		return configurationParser.parse();
