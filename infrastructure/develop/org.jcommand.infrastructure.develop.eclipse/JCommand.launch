@@ -27,5 +27,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="org.jcommand.api@default:default,org.jcommand.cm.persistencemanager@3:default,org.jcommand.executor@default:default,org.jcommand.prevayler@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default,org.jcommand.server.security.api@default:default"/>
+<stringAttribute key="workspace_bundles" value="TestModel@default:default,org.jcommand.api@default:default,org.jcommand.cm.persistencemanager@3:default,org.jcommand.executor@default:default,org.jcommand.prevayler@default:default,org.jcommand.provisioning.api@default:default,org.jcommand.queue@default:default,org.jcommand.server.security.api@default:default"/>
 </launchConfiguration>
