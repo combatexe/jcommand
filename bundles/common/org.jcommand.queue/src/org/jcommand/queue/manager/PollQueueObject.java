@@ -18,15 +18,15 @@ final class PollQueueObject<T extends QueueObject> implements Query<PersistenceQ
 	@Override
 	public List<T> query(PersistenceQueue<T> persistenceQueue, Date date) {
 
-		List<T> poolResultList = new ArrayList<>(poolSize);
+		List<T> pollResultList = new ArrayList<>(poolSize);
 		T queueObject;
 		for (int count = 0; poolSize > count; count++) {
 			queueObject = persistenceQueue.queue.poll();
 			if (queueObject != null) {
 				persistenceQueue.inTransaction.put(queueObject.getId(), queueObject);
-				poolResultList.add(queueObject);
+				pollResultList.add(queueObject);
 			}
 		}
-		return poolResultList;
+		return pollResultList;
 	}
 }
