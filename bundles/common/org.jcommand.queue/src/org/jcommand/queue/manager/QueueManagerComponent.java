@@ -49,7 +49,7 @@ public abstract class QueueManagerComponent<T extends QueueObject> implements Ma
 				Integer toUpdateQueueStatusCode = (Integer) properties.get(QueueConfigurationKeys.queueStatus.getKey());
 				QueueStatus toUpdateQueueStatus = QueueStatus.fromStatusCode(toUpdateQueueStatusCode);
 				QueueComponent<T> queueComponent = existingServices.get(pid);
-
+				// TODO FH: NullPointer?
 				queueComponent.changeStatusIfNeeded(toUpdateQueueStatus);
 			}
 		});
