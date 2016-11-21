@@ -1,6 +1,8 @@
 package org.jcommand.queue.api;
 
-public interface QueueObject {
+import java.io.Serializable;
+
+public interface QueueObject extends Serializable {
 
 	Long getId();
 
