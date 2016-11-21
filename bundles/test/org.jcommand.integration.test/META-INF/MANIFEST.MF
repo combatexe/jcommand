@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: TestModel
-Bundle-SymbolicName: org.jcommand.test
+Bundle-SymbolicName: org.jcommand.integration.test
 Bundle-Version: 1.0.0.qualifier
 JCommand-Model: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

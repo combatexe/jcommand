@@ -5,7 +5,7 @@
 	<groupId>org.jcommand.test</groupId>
 	<artifactId>org.jcommand.test</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>eclipse-test-plugin</packaging>
+	<packaging>pom</packaging>
 
 	<parent>
 		<groupId>org.jcommand</groupId>
@@ -13,6 +13,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
+	<modules>
+		<module>org.jcommand.integration.test</module>
+	</modules>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -54,12 +58,12 @@
 		</plugins>
 	</build>
 
-	<dependencies>
+	<!-- dependencies>
 		<dependency>
 			<groupId>org.jcommand.targetplatform</groupId>
 			<artifactId>org.jcommand.targetplatform.test.target</artifactId>
 			<version>${project.version}</version>
-			<type>pom</type>
+			<type>target</type>
 		</dependency>
-	</dependencies>
+	</dependencies -->
 </project>
