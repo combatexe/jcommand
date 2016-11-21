@@ -13,4 +13,4 @@ notifications:
     on_success: never
     on_failure: change
     
-script: bundle exec mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V && bundle exec mvn integration-test -B -V
+script: mvn integration-test -B -V
