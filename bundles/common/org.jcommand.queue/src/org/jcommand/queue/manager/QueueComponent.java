@@ -128,8 +128,15 @@ public class QueueComponent<T extends QueueObject> implements Queue<T>, BundleLi
 		if (QueueStatus.hasStatus(queueStatus, STOP, EXIST)) {
 			queueCapability = new QueueCapability(new File(queueLocation, "capability"));
 			queueCapability.activate(bundleContext);
-			PrevaylerBundleClassLoader bundleClassLoader = new PrevaylerBundleClassLoader(pid, queueCapability);
+			bundleClassLoader = new PrevaylerBundleClassLoader(pid, queueCapability);
 			bundleClassLoader.addBundle(bundleContext.getBundle());
+			Bundle[] bundles = bundleContext.getBundles();
+			for (Bundle bundle : bundles) {
+				Dictionary<String, String> headers = bundle.getHeaders();
+				if (null != headers.get("JCommand-Model")) {
+					bundleClassLoader.addBundle(bundle);
+				}
+			}
 			PrevaylerFactory<PersistenceQueue<T>> factory = new PrevaylerFactory<PersistenceQueue<T>>();
 			JavaSerializer serializer = new JavaSerializer(bundleClassLoader);
 			factory.configureJournalSerializer(serializer);
