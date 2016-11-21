@@ -10,24 +10,28 @@ import java.util.List;
 import org.jcommand.queue.api.Queue;
 import org.jcommand.queue.api.QueueObject;
 import org.junit.BeforeClass;
+import org.junit.ClassRule;
 import org.junit.Test;
+import org.junit.rules.Timeout;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
 
 public class QueueTest {
 
-	private static ServiceReference<Queue> serviceReference;
 	private static Queue<QueueObject> queueService;
 
-	@BeforeClass
+	@ClassRule
+	public static Timeout globalTimeout = Timeout.seconds(60);
+
+	@BeforeClass()
 	public static void findQueueService() {
 		BundleContext bundleContext = FrameworkUtil.getBundle(QueueTest.class).getBundleContext();
 		printBundleStatus(bundleContext);
 		ServiceTracker<Queue, Object> serviceTracker = new ServiceTracker<>(bundleContext, Queue.class, null);
 		serviceTracker.open();
+		int waitCount = 100;
 		while (serviceTracker.isEmpty()) {
 			try {
 				Thread.sleep(1000);
