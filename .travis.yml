@@ -2,6 +2,7 @@ jdk:
   - oraclejdk8
 
 addons:
+  hostname: tanaga
   apt:
     packages:
       - oracle-java8-installer
@@ -13,4 +14,4 @@ notifications:
     on_success: never
     on_failure: change
     
-script: mvn integration-test -B -V
+script: mvn integration-test -B -V -Dhost=tanaga -DconfigLocation=../../common/org.jcommand.cm.persistencemanager/config
