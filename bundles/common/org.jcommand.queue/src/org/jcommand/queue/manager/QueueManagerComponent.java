@@ -12,6 +12,7 @@ import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedServiceFactory;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.log.LogService;
 
 public abstract class QueueManagerComponent<T extends QueueObject> implements ManagedServiceFactory {
 
@@ -19,14 +20,17 @@ public abstract class QueueManagerComponent<T extends QueueObject> implements Ma
 
 	private BundleContext bundleContext;
 	protected Executor executor;
+	protected LogService logService;
 
 	@Activate
 	public void activate(BundleContext bundleContext) {
+		logService.log(LogService.LOG_INFO, "activate " + getClass().getName());
 		this.bundleContext = bundleContext;
 	}
 
 	@Deactivate
 	public void deactivate(BundleContext bundleContext) {
+		logService.log(LogService.LOG_WARNING, "deactivate " + getClass().getName());
 		for (Entry<String, QueueComponent<T>> entry : existingServices.entrySet()) {
 			executor.execute(new Runnable() {
 				@Override
@@ -44,6 +48,7 @@ public abstract class QueueManagerComponent<T extends QueueObject> implements Ma
 		executor.execute(new Runnable() {
 			@Override
 			public void run() {
+				logService.log(LogService.LOG_INFO, "update configuration for " + getClass().getName());
 				putDefaultQueueProperties(properties);
 				createIfNotExistQueueComponent(pid, properties);
 				Integer toUpdateQueueStatusCode = (Integer) properties.get(QueueConfigurationKeys.queueStatus.getKey());

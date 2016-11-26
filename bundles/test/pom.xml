@@ -69,7 +69,7 @@
 					<argLine>-DsystemConfigurationMatcher=/application/cluster1/tanaga -DconfigurationLocation=..\..\common\org.jcommand.cm.persistencemanager\config</argLine>
 					<appArgLine>-consoleLog</appArgLine>
 					<useUIThread>false</useUIThread>
-					<threadCount>4</threadCount>
+					<threadCount>2</threadCount>
 					<defaultStartLevel>
 						<autoStart>true</autoStart>
 						<level>4</level>
@@ -82,7 +82,7 @@
 						</bundle>
 						<bundle>
 							<id>org.jcommand.logging</id>
-							<level>2</level>
+							<level>1</level>
 							<autoStart>true</autoStart>
 						</bundle>						
 					</bundleStartLevel>

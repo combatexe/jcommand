@@ -3,5 +3,6 @@
    <service>
       <provide interface="org.jcommand.cm.ConfigurationService"/>
    </service>
+   <reference bind="bindLogService" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService" policy="static"/>
    <implementation class="org.jcommand.cm.internal.ConfigurationDefaultService"/>
 </scr:component>

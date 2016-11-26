@@ -19,6 +19,7 @@ import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.log.LogService;
 import org.xml.sax.SAXException;
 
 @Component(enabled = true, immediate = true, property = {
@@ -33,13 +34,17 @@ public class SVNConfigPersistencManager implements NotCachablePersistenceManager
 
 	private ConfigurationService configurationService;
 
+	private LogService logService;
+
 	@Activate
 	public void activate() throws IOException, ParserConfigurationException, SAXException {
 		for (SubConfiguration subConfiguration : SubConfiguration.values()) {
+			logService.log(LogService.LOG_INFO, "activate jcommand " + PersistenceManager.class.getName());
+
 			Map<String, ConfigurationNode> subConfigurationByPid = configurationService
 					.getConfiguration(subConfiguration.toString());
 			if (subConfigurationByPid == null) {
-				// TODO FH: Logging
+				logService.log(LogService.LOG_ERROR, "no pid for subConfiguration" + subConfiguration.name());
 				continue;
 			}
 			for (Entry<String, ConfigurationNode> entry : subConfigurationByPid.entrySet()) {
@@ -117,4 +122,8 @@ public class SVNConfigPersistencManager implements NotCachablePersistenceManager
 		// configurationByPid.put(pid, configurationNode);
 	}
 
+	@Reference
+	public void bindLogService(LogService logService) {
+		this.logService = logService;
+	}
 }

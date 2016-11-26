@@ -20,6 +20,8 @@
 		<module>org.jcommand.api</module>
 		<module>org.jcommand.cm.persistencemanager</module>
 		<module>org.jcommand.executor</module>
+		<module>org.jcommand.logging</module>
+		
 	</modules>
 
 

@@ -19,14 +19,19 @@ import org.jcommand.cm.internal.parser.ConfigurationParser;
 import org.jcommand.cm.internal.parser.LevelComperator;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.log.LogService;
 
 @Component
 public class ConfigurationDefaultService implements ConfigurationService {
 
 	Map<String, Map<String, ConfigurationNode>> configurationsByXPathGroupByPid = new HashMap<>(100);
+	private LogService logService;
 
 	@Activate
 	public void activate() {
+		logService.log(LogService.LOG_INFO, "activate " + ConfigurationService.class.getName());
+
 		Map<String, List<ConfigurationNode>> configurationsByXPath = parseConfigurations();
 		for (Map.Entry<String, List<ConfigurationNode>> nodesByXPath : configurationsByXPath.entrySet()) {
 
@@ -130,6 +135,7 @@ public class ConfigurationDefaultService implements ConfigurationService {
 		Path configRoot = Paths.get(System.getProperty("configurationLocation",
 				"../git/jcommand/bundles/common/org.jcommand.cm.persistencemanager/config"));
 		if (!Files.exists(configRoot, LinkOption.NOFOLLOW_LINKS)) {
+			logService.log(LogService.LOG_ERROR, "No configuration path found " + configRoot.toAbsolutePath());
 			throw new RuntimeException("Configuration path not exist:" + configRoot.toAbsolutePath());
 		}
 		String systemConfigurationMatcher = System.getProperty("systemConfigurationMatcher");
@@ -140,6 +146,11 @@ public class ConfigurationDefaultService implements ConfigurationService {
 	@Override
 	public Map<String, ConfigurationNode> getConfiguration(String xpath) {
 		return configurationsByXPathGroupByPid.get(xpath);
+	}
+
+	@Reference
+	public void bindLogService(LogService logService) {
+		this.logService = logService;
 	}
 
 }

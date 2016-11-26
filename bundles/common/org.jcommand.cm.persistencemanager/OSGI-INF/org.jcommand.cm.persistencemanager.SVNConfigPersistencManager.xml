@@ -5,5 +5,6 @@
       <provide interface="org.apache.felix.cm.PersistenceManager"/>
    </service>
    <reference bind="bindConfigurationService" cardinality="1..1" interface="org.jcommand.cm.ConfigurationService" name="ConfigurationService" policy="static" unbind="unbindConfigurationService"/>
+   <reference bind="bindLogService" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService" policy="static"/>
    <implementation class="org.jcommand.cm.persistencemanager.SVNConfigPersistencManager"/>
 </scr:component>
