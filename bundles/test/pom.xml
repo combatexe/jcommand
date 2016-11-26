@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jcommand.test</groupId>
 	<artifactId>org.jcommand.test</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -14,9 +13,10 @@
 	</parent>
 
 	<modules>
+		<module>org.jcommand.server.feature</module>
 		<module>org.jcommand.integration.test</module>
 	</modules>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -31,6 +31,16 @@
 							<version>1.0.0-SNAPSHOT</version>
 						</artifact>
 					</target>
+
+					<dependency-resolution>
+						<extraRequirements>
+							<requirement>
+								<type>p2-installable-unit</type>
+								<id>org.jcommand.server.feature.feature.group</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
 					<environments>
 						<environment>
 							<os>win32</os>
@@ -54,16 +64,30 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>0.26.0</version>
+				<configuration>
+					<!--  testRuntime>p2Installed</testRuntime -->
+					<argLine>-DsystemConfigurationMatcher=/application/cluster1/tanaga -DconfigurationLocation=..\..\common\org.jcommand.cm.persistencemanager\config</argLine>
+					<appArgLine>-consoleLog</appArgLine>
+					<useUIThread>false</useUIThread>
+					<threadCount>4</threadCount>
+					<defaultStartLevel>
+						<autoStart>true</autoStart>
+						<level>4</level>
+					</defaultStartLevel>
+					<bundleStartLevel>
+						<bundle>
+							<id>org.jcommand.cm.persistencemanager</id>
+							<level>3</level>
+							<autoStart>true</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.jcommand.logging</id>
+							<level>2</level>
+							<autoStart>true</autoStart>
+						</bundle>						
+					</bundleStartLevel>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-	<!-- dependencies>
-		<dependency>
-			<groupId>org.jcommand.targetplatform</groupId>
-			<artifactId>org.jcommand.targetplatform.test.target</artifactId>
-			<version>${project.version}</version>
-			<type>target</type>
-		</dependency>
-	</dependencies -->
 </project>
