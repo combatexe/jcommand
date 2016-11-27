@@ -1,5 +1,6 @@
 package org.jcommand.queue.manager;
 
+import java.util.Collections;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ import org.osgi.service.log.LogService;
 
 public abstract class QueueManagerComponent<T extends QueueObject> implements ManagedServiceFactory {
 
-	private Map<String, QueueComponent<T>> existingServices = new HashMap<>();
+	private Map<String, QueueComponent<T>> existingServices = Collections.synchronizedMap(new HashMap<>());
 
 	private BundleContext bundleContext;
 	protected Executor executor;
@@ -32,6 +33,7 @@ public abstract class QueueManagerComponent<T extends QueueObject> implements Ma
 	public void deactivate(BundleContext bundleContext) {
 		logService.log(LogService.LOG_WARNING, "deactivate " + getClass().getName());
 		for (Entry<String, QueueComponent<T>> entry : existingServices.entrySet()) {
+			entry.getValue().deactivateModelBundleListener();
 			executor.execute(new Runnable() {
 				@Override
 				public void run() {

@@ -18,6 +18,7 @@ public class CommandQueueManagerComponent extends QueueManagerComponent<CommandQ
 	}
 
 	public void unbindExecutor(Executor executor) {
+		logService.log(LogService.LOG_WARNING, "unbind " + Executor.class.getName());
 		super.executor = null;
 	}
 

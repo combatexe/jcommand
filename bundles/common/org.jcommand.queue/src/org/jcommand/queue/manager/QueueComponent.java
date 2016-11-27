@@ -174,7 +174,6 @@ public class QueueComponent<T extends QueueObject> implements Queue<T>, BundleLi
 			persistenceQueue.takeSnapshot();
 			persistenceQueue.close();
 			persistenceQueue = null;
-			deactivateModelBundleListener();
 			queueStatus |= QueueStatus.STOP.statusCode;
 		} catch (Exception e) {
 			queueStatus |= QueueStatus.ERROR.statusCode;
@@ -300,7 +299,8 @@ public class QueueComponent<T extends QueueObject> implements Queue<T>, BundleLi
 		}
 	}
 
-	private void deactivateModelBundleListener() {
+	public void deactivateModelBundleListener() {
+		queueStatus |= QueueStatus.SUSPEND.statusCode;
 		bundleContext.removeBundleListener(this);
 		queueCapability.deactivate(bundleContext);
 		bundleClassLoader = null;
