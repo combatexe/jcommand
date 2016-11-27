@@ -84,7 +84,15 @@
 							<id>org.jcommand.logging</id>
 							<level>1</level>
 							<autoStart>true</autoStart>
-						</bundle>						
+						</bundle>
+						<bundle>
+							<id>org.eclipse.tycho.surefire.junit4</id>
+							<autoStart>false</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.eclipse.osgi.compatibility.state</id>
+							<autoStart>false</autoStart>
+						</bundle>					
 					</bundleStartLevel>
 				</configuration>
 			</plugin>
